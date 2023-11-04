@@ -1,0 +1,22 @@
+<div class="card px-3 py-3 border-light h-100">
+  <div class="row w-100">
+    <div class="col-11">
+      <h5 class="title">{{ title }}</h5>
+      <p class="secondary">
+        From {{ todayDate | date : "MMM dd" }} to
+        {{ todayDate | date : "MMM dd y" }}
+      </p>
+    </div>
+    <div class="col-1 my-auto">
+      <i class="secondary fa fa-info-circle fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <ng-content></ng-content>
+
+  <div *ngIf="footerShow" class="text-end">
+    <a class="text-decoration-none" routerLink="process"
+      ><b class="primaryColor">View for more info</b></a
+    >
+  </div>
+</div>

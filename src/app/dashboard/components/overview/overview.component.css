@@ -1,0 +1,11 @@
+.customTab {
+  border-bottom: solid #25a0fc 3px;
+}
+.storesActiveTab {
+  border-radius: 5px;
+  background-color: rgb(243, 241, 241);
+}
+
+.storesTab {
+  border-radius: 5px;
+}

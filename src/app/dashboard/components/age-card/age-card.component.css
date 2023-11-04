@@ -1,0 +1,23 @@
+.ageCat {
+  width: 38%;
+  font-weight: 600;
+  color: rgb(132, 130, 130);
+}
+
+.customTable,
+tr {
+  border-top: dashed rgb(212, 211, 211) 0.8px;
+}
+.progress {
+  /* height: 1.3rem; */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.progress-bar {
+  background-color: #25a0fc;
+}
+.progressRow {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}

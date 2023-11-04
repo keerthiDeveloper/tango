@@ -1,0 +1,29 @@
+<app-card [title]="title">
+  <div class="card-body">
+    <div>
+      <span>
+        <img
+          src="../../../../assets/icons/foot_home.png"
+          height="25rem"
+          alt="Home"
+          srcset=""
+        />
+      </span>
+      <span class="ps-2 title fs-1 align-middle">48 %</span>
+    </div>
+    <div class="d-flex justify-content-between pt-5">
+      <div *ngFor="let item of conversionData; index as i">
+        <img
+          [src]="
+            selectedIndex === i ? item.data[0].imgUrl : item.data[1].imgUrl
+          "
+          height="25rem"
+          (mouseenter)="imgHover(i, true)"
+          (mouseleave)="imgHover(i, false)"
+          alt="Home"
+          srcset=""
+        />
+      </div>
+    </div>
+  </div>
+</app-card>

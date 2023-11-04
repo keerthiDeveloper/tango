@@ -1,0 +1,161 @@
+<div class="card px-3 py-3 border-light">
+  <form>
+    <div class="row">
+      <div class="col-lg-6">
+        <h5 class="title">{{ title }}</h5>
+        <p class="secondary">Form Oct 02 to Oct 30 2023</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex justify-content-end">
+          <span class="col col-form-label" *ngIf="service.loading$ | async"
+            >Loading...</span
+          >
+          <div class="w-50 pe-2 table-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input
+              type="text"
+              id="table-complete-search"
+              type="text"
+              class="form-control"
+              name="searchTerm"
+              placeholder="Search By Store Name and Id"
+              [(ngModel)]="service.searchTerm"
+            />
+          </div>
+
+          <button class="btn sumBtn" type="button">
+            <i class="fa fa-align-center mx-2" aria-hidden="true"></i
+            ><span class="hideText">Sum</span>
+          </button>
+          <button class="btn customBtn" type="button">
+            <i class="fa fa-align-right mx-2" aria-hidden="true"></i>
+            <span class="hideText">Average</span>
+          </button>
+          <button class="btn customBtn" type="button">
+            <i class="fa fa-upload mx-2" aria-hidden="true"></i
+            ><span class="hideText">Export</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col" sortable="store_name" (sort)="onSort($event)">
+              STORE NAME
+            </th>
+            <th scope="col" sortable="store_id" (sort)="onSort($event)">
+              STORE ID
+            </th>
+            <th scope="col" sortable="football" (sort)="onSort($event)">
+              FOOTBALL
+            </th>
+            <th scope="col" sortable="bounced" (sort)="onSort($event)">
+              BOUNCED_FF
+            </th>
+            <th scope="col" sortable="engagers" (sort)="onSort($event)">
+              ENGAGERS
+            </th>
+            <th scope="col" sortable="opportunity" (sort)="onSort($event)">
+              M-OPPORTUNITY
+            </th>
+            <th
+              scope="col"
+              sortable="billable_entities"
+              (sort)="onSort($event)"
+            >
+              BILLABLE ENTITIES
+            </th>
+            <th scope="col" sortable="conversion_rate" (sort)="onSort($event)">
+              CONVERSION_RATE
+            </th>
+            <th scope="col" sortable="avg_dwell_time" (sort)="onSort($event)">
+              AVG DWELL TIME
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let store of stores$ | async">
+            <td class="storeName">
+              <ngb-highlight
+                [result]="store.name"
+                [term]="service.searchTerm"
+              ></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight
+                [result]="store.store_id"
+                [term]="service.searchTerm"
+              ></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight
+                [result]="store.football | number"
+                [term]="service.searchTerm"
+              ></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight
+                [result]="store.bounced | number"
+                [term]="service.searchTerm"
+              ></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight
+                [result]="store.engagers | number"
+                [term]="service.searchTerm"
+              ></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight
+                [result]="store.opportunity | number"
+                [term]="service.searchTerm"
+              ></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight
+                [result]="store.billable_entities | number"
+                [term]="service.searchTerm"
+              ></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight
+                [result]="store.conversion_rate | number"
+                [term]="service.searchTerm"
+              ></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight
+                [result]="store.avg_dwell_time | number"
+                [term]="service.searchTerm"
+              ></ngb-highlight>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="w-100 d-flex justify-content-center">
+        <select
+          class="form-select mb-3 pageSelect"
+          name="pageSize"
+          [(ngModel)]="service.pageSize"
+        >
+          <option [ngValue]="10">10</option>
+          <option [ngValue]="20">20</option>
+          <option [ngValue]="30">30</option>
+        </select>
+        <small class="py-2 px-4">{{
+          "Displaying " + service.page * 10 + " of " + "10" + " records"
+        }}</small>
+        <ngb-pagination
+          class="pagination"
+          [collectionSize]="(total$ | async)!"
+          [(page)]="service.page"
+          [pageSize]="service.pageSize"
+        >
+        </ngb-pagination>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,28 @@
+<app-card [title]="title"
+  ><div class="card-body">
+    <table class="customTable w-100">
+      <tbody>
+        <tr *ngFor="let age of dashBoard[2].data" class="align-middle">
+          <td class="ageCat text-start">
+            <small>{{ age.type }}</small>
+          </td>
+          <td>
+            <div class="progressRow d-flex">
+              <small class="w-25">{{ age.percentage }}</small>
+              <div class="progress w-75">
+                <div
+                  aria-valuenow="100"
+                  role="progressbar"
+                  [style]="'width:' + age.percentage"
+                  class="progress-bar"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</app-card>

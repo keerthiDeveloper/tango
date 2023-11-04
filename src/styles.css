@@ -1,0 +1,21 @@
+@import "~bootstrap/dist/css/bootstrap.css"; /* You can add global styles to this file, and also import other style files */
+.primaryColor {
+  color: #25a0fc !important;
+}
+.title {
+  color: black;
+  font-weight: 600;
+}
+.secondary {
+  color: rgb(170, 166, 166);
+  font-weight: 600;
+}
+
+@media screen and (max-width: 500px) {
+  .hideText {
+    display: none;
+  }
+  .storesActiveTab {
+    padding-bottom: 10px;
+  }
+}

@@ -1,0 +1,49 @@
+.pageSelect {
+  width: auto;
+  background-color: #cae4f8;
+  color: #25a0fc;
+  font-weight: 600;
+}
+.customBtn {
+  color: #25a0fc;
+  background-color: #cae4f8;
+  height: 2.5rem;
+  font-weight: 600;
+  width: 8rem;
+  margin-right: 6px;
+}
+
+.sumBtn {
+  background-color: #25a0fc;
+  color: white;
+  height: 2.5rem;
+  font-weight: 600;
+  width: 8rem;
+  margin-right: 6px;
+}
+
+.storeName {
+  font-weight: 600;
+  color: #25a0fc;
+}
+
+.table-search .form-control {
+  padding-left: 2.375rem;
+  background-color: #f4f8fa;
+}
+
+.table-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+::ng-deep .page-item.active .page-link {
+  background-color: #25a0fc;
+}

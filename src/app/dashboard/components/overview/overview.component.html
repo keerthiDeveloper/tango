@@ -1,0 +1,59 @@
+<div class="card px-3 py-3 border-light h-100">
+  <div class="row w-100">
+    <div class="col-lg-6">
+      <h5 class="title">{{ title }}</h5>
+      <p class="secondary">
+        From {{ todayDate | date : "MMM dd" }} to
+        {{ todayDate | date : "MMM dd y" }}
+      </p>
+    </div>
+    <div class="col-lg-6">
+      <div class="h-50 d-flex justify-content-end">
+        <div
+          *ngFor="let item of storesTabData; index as i"
+          (click)="selectStoreTab(i)"
+          [ngClass]="
+            storesSelectIndex == i
+              ? 'storesActiveTab  pt-1 px-3'
+              : 'storesTab   pt-1 px-3'
+          "
+        >
+          <p>{{ item.title }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row h-100">
+    <div class="w-100 px-4">
+      <div class="row w-100 text-center pt-2">
+        <div
+          [ngClass]="selectIndex === i ? 'customTab col-4' : 'col-4'"
+          *ngFor="let item of overviewSubModel; index as i"
+          (click)="onSubModuleTab(i)"
+        >
+          <img [src]="item.imgUrl" height="45rem" alt="" />
+          <p class="hideText pt-3">
+            <b>{{ item.title }}</b>
+          </p>
+        </div>
+        <div class="col-5"></div>
+      </div>
+    </div>
+    <div class="h-75 w-100">
+      <canvasjs-chart
+        *ngIf="selectIndex === 0; else otherTab"
+        [options]="chartOptions"
+      ></canvasjs-chart>
+      <ng-template #otherTab>
+        <div class="h-100 align-middle text-center">
+          <img
+            src="../../../../assets/images/process.gif"
+            height="200rem"
+            alt=""
+            srcset=""
+          />
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
